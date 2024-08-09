@@ -1,14 +1,25 @@
 <script>
     import itemCount from '@/components/itemCount.vue';
+    import { useShoppingCartStore } from '@/stores/cart'
     export default {
+        setup() {
+            const shoppingCartStore = useShoppingCartStore();
+            return { shoppingCartStore }
+        },
         components: {
             itemCount,
+        },
+
+
+        mounted() {
+            console.log(this.shoppingCartStore.cart);
         },
 
         data() {
             return {
                 data: [
-                    {itemCount1: 1, itemCount2: 1, itemCount3: 1, price1: 0, price2: 0, price3: 0, fee: 60, littleTotal: 0, items: 0, payment:'', deliver: '', name: '', phone: '', email: '', address: '', city: '', zip: 0},
+                    {itemCount1: 1, itemCount2: 1, itemCont3: 1, price1: 0, price2: 0, price3: 0, fee: 60, littleTotal: 0, items: 0, payment:'', deliver: '', name: '', phone: '', email: '', address: '', city: '', zip: 0},
+
                 ],
             } 
         },
